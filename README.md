@@ -39,7 +39,7 @@ and to have a big test case would mean that you would need to analyse the test c
 So if the test is linked to the function signature, you immediately know where the problem is.
 
 
-What makes a good test?
+### What makes a good test?
 1. Scope: how much of our code is covered by our test case
 2. Speed: how fast does it run. It also makes the development faster and more efficient
 3. Fidelity: how similar the test case is to the real world scenario
@@ -47,7 +47,7 @@ What makes a good test?
 Avoid flaky tests(sometimes succeds and sometimes fails) 
 NEVER make one test outcome dependent on the outcome of another test
 
-How many cases should you write?
+### How many cases should you write?
 Equivalent classes are useful to determine the amount of tests a function should have.
 For example, you have a registration form. To be able to register, all the inputs are necessary, so
 all the inputs on the form would make one equivalent class. Another eq
@@ -66,12 +66,12 @@ dependencies:
     testImplementation "com.google.truth:truth:1.0.1" // easier to read assertions
     androidTestImplementation "com.google.truth:truth:1.0.1"
 
-What is the difference between testimplementation and androidTestImplementation? 
+### What is the difference between testimplementation and androidTestImplementation? 
 They reference the different source sets in the java root folder.
 The integrated tests belong in the androidTest directory.
 All the others that don't rely on the emulator and android components com in the Test directory.
 
-1. First Case: User Input
+### 1. First Case: User Input
 
 You create the function to validate the registration Input inside a object and already antecipate 
 the test cases.
