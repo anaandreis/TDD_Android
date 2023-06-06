@@ -81,3 +81,24 @@ Inside that class, you can write the test functions that will check the function
 annotation.
 
 Assertion function (assertThat()): you can pull it from the junit library and from the google truth library that we added.
+
+### 2. Second Case: Using Android components such as context and AndroidTest folder
+(Android Components Branch)
+
+You can use both singleton objects or classes to craft your test, but the problem with the class is that it needs to be instatiated and needs a context.
+When instantiating, be careful not to link all the tests to the same instatiation, because that would mean that they are not independent anymore and produces
+flaky tests.
+Although we could declare a lateinit var and instantiate inside each class, that would be a lot of boiler plate code so JUnit has a solution: fun setup(), that 
+defines the logic of execution before the test cases.
+You instantiate the class in the set up function and annotate it with @Before. 
+
+@Before
+fun setup() {
+	resourceComparer = ResourceComparer()	
+}
+
+There is also an @After annotation, used normally to destroy objects created before or closing the database or dealing with viewModel
+  
+Using the braces do not work in this case like the naming convention for functions in the Test directory. But it is important to describe the goal of the 
+function in a clear way. Example: stringResourceSameAsGivenString_returnsTrue()
+Needs emulator to run the test.
